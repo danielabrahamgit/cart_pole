@@ -21,12 +21,12 @@ M = 15
 g = 0.5
 l = 175
 k = 1
-u_max = M * 0.3
+u_max = M * 0.2
 
 # PID Constatns
-kp = 6
-ki = 0.01
-kd = 7
+kp = 100
+ki = 2
+kd = 30
 
 # Linearized system
 A = np.array([
@@ -129,10 +129,10 @@ def draw_current_state(cur_state, u, vis_inp=False):
 	arcade.draw_circle_filled(pole_tip_x, pole_tip_y, BALL_RAD, arcade.color.BLACK)
 	# Visualize input
 	if vis_inp:
-		max_width = 100 * u_max / M
+		max_width = 200 * u_max / M
 		center_height = GROUND_HEIGHT + CART_HEIGHT//2 + 2*WHEEL_RAD
 		margin_height = 30
-		arcade.draw_line(x, center_height, x + 100 * u / M, center_height, arcade.color.BLACK, 2)
+		arcade.draw_line(x, center_height, x + 200 * u / M, center_height, arcade.color.BLACK, 2)
 		arcade.draw_line(x - max_width,center_height - margin_height, x - max_width, center_height + margin_height, arcade.color.RED, 2)
 		arcade.draw_line(x + max_width,center_height - margin_height, x + max_width, center_height + margin_height, arcade.color.RED, 2)
 

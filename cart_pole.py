@@ -169,7 +169,7 @@ def update_input(cur_state):
 	theta_sum = cur_state[4]
 
 	# Get desired input 
-	u_desired = kp * theta  + ki * theta_sum - kd * theta_dot
+	u_desired = kp * theta  + ki * theta_sum + kd * theta_dot
 
 	# Check for max 
 	if abs(u_desired) > u_max:
